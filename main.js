@@ -1,5 +1,5 @@
 
-const apiKey = 'YOUR_OPENWEATHERMAP_API_KEY';
+const apiKey = '322cd9c5d44662446bf0dcce951b1365';
 
 // Event listener for the "Check Weather" button
 document.getElementById('checkButton').addEventListener('click', () => {
@@ -31,21 +31,26 @@ function getWeatherData(city) {
 
 // Function to display weather information on the page
 function displayWeather(weatherData) {
-  const weatherInfoDiv = document.getElementById('weatherInfo');
-  weatherInfoDiv.innerHTML = '';
-
-  const weatherObjects = [
-    { attribute: 'Temperature', value: `${weatherData.main.temp}°C` },
-    { attribute: 'Humidity', value: `${weatherData.main.humidity}%` },
-    { attribute: 'Weather', value: weatherData.weather[0].description },
-    { attribute: 'Wind Speed', value: `${weatherData.wind.speed} m/s` },
-    { attribute: 'Pressure', value: `${weatherData.main.pressure} hPa` }
-  ];
-
-  weatherObjects.forEach(weatherObject => {
-    const weatherItem = document.createElement('div');
-    weatherItem.classList.add('weather-item');
-    weatherItem.innerHTML = `<strong>${weatherObject.attribute}:</strong> ${weatherObject.value}`;
-    weatherInfoDiv.appendChild(weatherItem);
-  });
-}
+    const weatherInfoDiv = document.getElementById('weatherInfo');
+    weatherInfoDiv.innerHTML = '';
+  
+    // Extract the city name from the API response
+    const cityName = weatherData.name;
+  
+    const weatherObjects = [
+      { attribute: 'City', value: cityName }, // Add the city name to the weather objects
+      { attribute: 'Temperature', value: `${weatherData.main.temp}°C` },
+      { attribute: 'Humidity', value: `${weatherData.main.humidity}%` },
+      { attribute: 'Weather', value: weatherData.weather[0].description },
+      { attribute: 'Wind Speed', value: `${weatherData.wind.speed} m/s` },
+      { attribute: 'Pressure', value: `${weatherData.main.pressure} hPa` }
+    ];
+  
+    weatherObjects.forEach(weatherObject => {
+      const weatherItem = document.createElement('div');
+      weatherItem.classList.add('weather-item');
+      weatherItem.innerHTML = `<strong>${weatherObject.attribute}:</strong> ${weatherObject.value}`;
+      weatherInfoDiv.appendChild(weatherItem);
+    });
+  }
+  
