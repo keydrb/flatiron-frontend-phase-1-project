@@ -1,3 +1,20 @@
 body {
-    background-color: rgb(113, 113, 220);
-}
+    background-color: #7171dc;
+    font-family: Arial Bold, sans-serif;
+    text-align: center;
+    margin: 40px;
+  }
+  
+  .states-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .state-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+  }
