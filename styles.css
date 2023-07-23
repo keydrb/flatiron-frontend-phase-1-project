@@ -36,8 +36,23 @@
     cursor: pointer;
     border-radius: 6px;
   }
+
+.weather-item {
+    /* Add some styles to display weather items as a flexbox row */
+    display: flex;
+    align-items: center;
+  }
+  
+  .weather-icon {
+    /* Add styles to size the weather icons and prevent them from affecting the layout flow */
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    margin-right: 10px; /* Optional spacing between the icon and the weather data */
+  }
+  
   
   #weatherInfo {
     margin-top: 20px;
   }
+  
   

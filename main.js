@@ -30,6 +30,9 @@ function getWeatherData(city) {
 }
 
 // Function to display weather information on the page
+// ... (Previous code)
+
+// Function to display weather information on the page
 function displayWeather(weatherData) {
     const weatherInfoDiv = document.getElementById('weatherInfo');
     weatherInfoDiv.innerHTML = '';
@@ -38,7 +41,7 @@ function displayWeather(weatherData) {
     const cityName = weatherData.name;
   
     const weatherObjects = [
-      { attribute: 'City', value: cityName }, // Add the city name to the weather objects
+      { attribute: 'City', value: cityName },
       { attribute: 'Temperature', value: `${weatherData.main.temp}°C` },
       { attribute: 'Humidity', value: `${weatherData.main.humidity}%` },
       { attribute: 'Weather', value: weatherData.weather[0].description },
@@ -49,8 +52,34 @@ function displayWeather(weatherData) {
     weatherObjects.forEach(weatherObject => {
       const weatherItem = document.createElement('div');
       weatherItem.classList.add('weather-item');
-      weatherItem.innerHTML = `<strong>${weatherObject.attribute}:</strong> ${weatherObject.value}`;
+      const iconFilename = getWeatherIconFilename(weatherData.weather[0].main);
+      const iconMarkup = iconFilename ? `<img src="icons/${iconFilename}" alt="${weatherData.weather[0].main}" class="weather-icon">` : '';
+      weatherItem.innerHTML = `<strong>${weatherObject.attribute}:</strong> ${iconMarkup} ${weatherObject.value}`;
       weatherInfoDiv.appendChild(weatherItem);
     });
+  }  
+ 
+// Function to map weather conditions to PNG filenames
+function getWeatherIconFilename(weatherCondition) {
+    switch (weatherCondition) {
+      case 'Clear':
+        return 'sunny-day.png';
+      case 'Clouds':
+        return 'cloudy.png';
+        case 'Rain':
+            return 'rainy.png';
+      // Add mappings for other weather conditions and their corresponding PNG filenames
+      // For example:
+      // case 'Rain':
+      //   return 'rain.png';
+      // case 'Snow':
+      //   return 'snow.png';
+      // case 'Thunderstorm':
+      //   return 'thunderstorm.png';
+      // case 'Drizzle':
+      //   return 'drizzle.png';
+      default:
+        return ''; // If the weather condition is not recognized, return an empty string
+    }
   }
   
