@@ -1,6 +1,7 @@
 
-const apiKey = 'KEYDRB';
-
+const apiKey = 'mykey';
+var mykey = config.MY_KEY;
+var secretkey = config.SECRET_KEY;
 // Event listener for the "Check Weather" button
 document.getElementById('checkButton').addEventListener('click', () => {
   const cityInput = document.getElementById('cityInput').value;
