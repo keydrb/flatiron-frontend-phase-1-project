@@ -1,7 +1,6 @@
+var keydrb= config.keydrb;
 
-const apiKey = 'mykey';
-var mykey = config.MY_KEY;
-var secretkey = config.SECRET_KEY;
+
 // Event listener for the "Check Weather" button
 document.getElementById('checkButton').addEventListener('click', () => {
   const cityInput = document.getElementById('cityInput').value;
@@ -23,7 +22,7 @@ document.getElementById('cityInput').addEventListener('keydown', (event) => {
 // Function to fetch weather data from the OpenWeatherMap API
 function getWeatherData(city)
 {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${keydrb}&units=metric`;
 
   fetch(url)
     .then(response => response.json())
