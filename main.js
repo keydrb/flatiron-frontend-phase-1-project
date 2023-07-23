@@ -20,7 +20,8 @@ document.getElementById('cityInput').addEventListener('keydown', (event) => {
 });
 
 // Function to fetch weather data from the OpenWeatherMap API
-function getWeatherData(city) {
+function getWeatherData(city)
+{
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   fetch(url)
@@ -30,7 +31,6 @@ function getWeatherData(city) {
 }
 
 // Function to display weather information on the page
-// ... (Previous code)
 
 // Function to display weather information on the page
 function displayWeather(weatherData) {
@@ -39,7 +39,13 @@ function displayWeather(weatherData) {
   
     // Extract the city name from the API response
     const cityName = weatherData.name;
-  
+
+    const locationDiv = document.createElement('div');
+    locationDiv.classList.add('location');
+    locationDiv.innerHTML = '<strong.Location:</strong> ${cityName}, ${stateName}';
+    
+
+
     const weatherObjects = [
       { attribute: 'City', value: cityName },
       { attribute: 'Temperature', value: `${weatherData.main.temp}°C` },
