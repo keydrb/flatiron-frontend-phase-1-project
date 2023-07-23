@@ -1,5 +1,5 @@
 
-const apiKey = '322cd9c5d44662446bf0dcce951b1365';
+const apiKey = 'KEYDRB';
 
 // Event listener for the "Check Weather" button
 document.getElementById('checkButton').addEventListener('click', () => {
