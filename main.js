@@ -1,6 +1,5 @@
 var keydrb= config.keydrb;
 
-
 // Event listener for the "Check Weather" button
 document.getElementById('checkButton').addEventListener('click', () => {
   const cityInput = document.getElementById('cityInput').value;
@@ -73,17 +72,13 @@ function getWeatherIconFilename(weatherCondition) {
       case 'Clouds':
         return 'cloudy.png';
         case 'Rain':
-            return 'rainy.png';
-      // Add mappings for other weather conditions and their corresponding PNG filenames
-      // For example:
-      // case 'Rain':
-      //   return 'rain.png';
-      // case 'Snow':
-      //   return 'snow.png';
-      // case 'Thunderstorm':
-      //   return 'thunderstorm.png';
-      // case 'Drizzle':
-      //   return 'drizzle.png';
+         return 'rainy.png';
+        case 'Snow':
+          return 'snow.png';
+        case 'Windy':
+          return 'wind.png';
+        case 'Thunderstorm':
+          return 'heavy-rain.png';
       default:
         return ''; // If the weather condition is not recognized, return an empty string
     }
